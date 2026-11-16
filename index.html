@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eugênio Fim · studio Ti Artes</title>
+<meta name="description" content="Músico, multi-instrumentista, produtor musical e compositor. Trilhas, sound design e discos. Studio Ti Artes, Curitiba.">
+<meta name="theme-color" content="#0B1416">
+<meta property="og:title" content="Eugênio Fim · studio Ti Artes">
+<meta property="og:description" content="Trilhas, sound design e discos. Som feito à mão, desde 2003.">
+<meta property="og:image" content="https://links.eugeniofim.com/img/og.jpg">
+<meta property="og:url" content="https://links.eugeniofim.com/">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:wght@400;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noite:#0B1416; --noite2:#0F1C1F; --tinta:#E9F2EF; --cinza:#93A8A6; --linha:rgba(233,242,239,.10);
+  --menta:#2EDCC6; --menta2:#8FEBDC; --fundo-menta:rgba(46,220,198,.10);
+  --sombra:0 30px 60px -30px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--noite);color-scheme:dark}
+body{min-height:100vh;background:var(--noite);color:var(--tinta);font:17px/1.5 Carlito,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase}
+
+/* o céu: brilho menta que anda devagar com a rolagem */
+.ceu{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ceu i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
+.ceu i:nth-child(1){width:70vmax;height:70vmax;left:-30vmax;top:-30vmax;background:radial-gradient(circle,rgba(46,220,198,.22),transparent 65%)}
+.ceu i:nth-child(2){width:60vmax;height:60vmax;right:-25vmax;top:35vh;background:radial-gradient(circle,rgba(11,140,125,.28),transparent 65%)}
+.ceu i:nth-child(3){width:50vmax;height:50vmax;left:10vw;bottom:-30vmax;background:radial-gradient(circle,rgba(143,235,220,.12),transparent 65%)}
+.grao{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+main{position:relative;z-index:2;max-width:560px;margin:0 auto;padding:0 16px 140px}
+
+/* ---------- abertura: o logo em 3D ---------- */
+.topo{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;perspective:900px;padding-top:24px}
+.marca3d{width:min(46vw,210px);aspect-ratio:1;position:relative;transform-style:preserve-3d;will-change:transform;margin-bottom:34px;filter:drop-shadow(0 40px 40px rgba(0,0,0,.55))}
+.marca3d .q{position:absolute;border-radius:24%;transform-style:preserve-3d}
+.marca3d .q1{left:6%;top:6%;width:52%;height:52%;border:clamp(5px,1.7vw,8px) solid var(--menta);transform:translateZ(-34px);box-shadow:0 0 40px rgba(46,220,198,.25)}
+.marca3d .q2{left:32%;top:30%;width:60%;height:60%;background:linear-gradient(145deg,#43E7D3,#1FBFAA);transform:translateZ(34px);box-shadow:0 30px 70px -20px rgba(46,220,198,.55),inset 0 2px 0 rgba(255,255,255,.35)}
+.marca3d .q2 svg{position:absolute;inset:22%;width:56%;height:56%}
+.marca3d .sombra{position:absolute;left:10%;right:0;bottom:-18%;height:16%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent);transform:translateZ(-80px) rotateX(90deg)}
+.selo{display:inline-flex;align-items:baseline;gap:8px;margin-bottom:14px}
+.selo em{font:italic 400 17px Caladea,serif;color:var(--menta2)}
+.selo b{font:700 17px Caladea,serif}
+h1{font:700 clamp(44px,12vw,72px)/1 Caladea,serif;letter-spacing:-.02em}
+.oficios{margin-top:16px;color:var(--cinza);font-size:17px;max-width:30ch}
+.oficios span{color:var(--tinta)}
+.rede{display:flex;gap:10px;justify-content:center;margin-top:26px}
+.rede a{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--linha);background:rgba(255,255,255,.03);transition:transform .2s,border-color .2s,background .2s}
+.rede a:hover,.rede a:focus-visible{transform:translateY(-3px);border-color:rgba(46,220,198,.5);background:var(--fundo-menta)}
+.rede svg{width:21px;height:21px}
+.desce{margin-top:46px;color:var(--cinza);display:flex;flex-direction:column;align-items:center;gap:8px}
+.desce i{width:1px;height:42px;background:linear-gradient(var(--menta),transparent);animation:pinga 2.2s ease-in-out infinite}
+@keyframes pinga{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- os cartões: vêm do fundo enquanto rola ---------- */
+.trabalhos{display:flex;flex-direction:column;gap:18px;perspective:1100px}
+.titulo-sec{display:flex;align-items:center;gap:12px;margin:8px 4px 6px;color:var(--cinza)}
+.titulo-sec::after{content:"";flex:1;height:1px;background:var(--linha)}
+.cartao{position:relative;display:block;border-radius:22px;overflow:hidden;background:var(--noite2);border:1px solid var(--linha);box-shadow:var(--sombra);
+  transform-style:preserve-3d;will-change:transform,opacity;transition:border-color .25s;min-height:44px}
+.cartao:hover,.cartao:focus-visible{border-color:rgba(46,220,198,.55)}
+.cartao:focus-visible{outline:2px solid var(--menta);outline-offset:3px}
+.cartao .capa{position:relative;aspect-ratio:16/8;overflow:hidden;background:#0A1214}
+.cartao .capa img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;display:block;transform:translateY(var(--px,0px)) scale(1.04);will-change:transform;filter:saturate(1.05)}
+.cartao .capa::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,28,31,0) 30%,rgba(15,28,31,.75) 70%,#0F1C1F 100%)}
+.cartao .capa.disco{aspect-ratio:16/9;background:#0A1214}
+.cartao .capa.disco img{left:auto;right:6%;top:8%;width:auto;height:84%;aspect-ratio:1;border-radius:12px;box-shadow:0 20px 40px -12px rgba(0,0,0,.8);transform:translateY(var(--px,0px)) rotate(-4deg)}
+.cartao .capa.disco::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 45%,rgba(46,220,198,.28),transparent 55%)}
+.cartao .capa.sem{display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,rgba(46,220,198,.35),transparent 55%),linear-gradient(140deg,#123236,#0B1416)}
+.cartao .capa.sem b{font:700 clamp(30px,9vw,46px)/1 Caladea,serif;letter-spacing:-.01em;color:var(--tinta);position:relative;z-index:1;text-align:center;padding:0 18px}
+.cartao .info{position:relative;display:flex;align-items:flex-end;gap:14px;padding:0 20px 18px;margin-top:-44px;z-index:1}
+.cartao .info div{flex:1;min-width:0}
+.cartao .tipo{color:var(--menta2)}
+.cartao h2{font:700 23px/1.15 Caladea,serif;margin-top:5px}
+.cartao p{color:var(--cinza);font-size:15.5px;margin-top:3px}
+.cartao .seta{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--menta);color:#06231F;transform:translateZ(30px);transition:transform .25s}
+.cartao:hover .seta{transform:translateZ(30px) rotate(-45deg)}
+.cartao .seta svg{width:18px;height:18px}
+
+/* convite final */
+.contato{margin-top:46px;padding:30px 22px;border-radius:26px;text-align:center;background:linear-gradient(160deg,rgba(46,220,198,.16),rgba(11,140,125,.06));border:1px solid rgba(46,220,198,.3)}
+.contato h2{font:700 clamp(28px,8vw,38px)/1.1 Caladea,serif}
+.contato p{color:var(--cinza);margin:10px auto 22px;max-width:32ch}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 26px;border-radius:16px;background:var(--menta);color:#06231F;font-weight:700;font-size:17.5px;box-shadow:0 18px 40px -16px rgba(46,220,198,.7);transition:transform .2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:22px;height:22px}
+footer{margin-top:40px;text-align:center;color:var(--cinza);font-size:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+footer img{width:34px;height:34px}
+
+/* WhatsApp sempre à mão no celular, depois da abertura */
+.fixo{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));transform:translate(-50%,140%);z-index:5;transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  display:flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;background:rgba(11,20,22,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(46,220,198,.4);font-weight:700;white-space:nowrap}
+.fixo.ver{transform:translate(-50%,0)}
+.fixo svg{width:20px;height:20px;color:var(--menta)}
+
+@media (prefers-reduced-motion:reduce){ .marca3d,.cartao,.cartao .capa img,.ceu i{transform:none!important} .desce i{animation:none} }
+</style>
+</head>
+<body>
+<div class="ceu" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grao" aria-hidden="true"></div>
+
+<main>
+  <header class="topo">
+    <div class="marca3d" id="marca" aria-hidden="true">
+      <span class="q q1"></span>
+      <span class="q q2"><svg viewBox="23 21 34 34"><path fill="#06231F" d="M41.2 30.2c0-1 .7-1.9 1.7-2.1l7.4-2c1-.3 2 .5 2 1.5v3.1c0 .8-.5 1.5-1.3 1.7l-6.2 1.7v10.6c0 3.3-2.9 6-6.4 6-2.3 0-4-1.5-4-3.5 0-2.9 2.9-5.2 6.4-5.2.2 0 .3 0 .4.1z"/></svg></span>
+    </div>
+    <div class="selo"><em>studio</em><b>Ti Artes</b></div>
+    <h1>Eugênio Fim</h1>
+    <p class="oficios"><span>Músico</span>, multi-instrumentista, <span>produtor musical</span> e compositor. Som feito à mão, desde 2003.</p>
+    <nav class="rede" aria-label="Redes">
+      <a href="https://www.instagram.com/eugeniofim/" target="_blank" rel="noopener" aria-label="Instagram @eugeniofim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://open.spotify.com/intl-pt/album/1SfVpuxJeCji0Ju38EO1ty" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M7.5 9.5c3-1 6.5-.7 9 .8M8 12.6c2.5-.7 5.2-.4 7.3.8M8.6 15.4c2-.5 3.9-.3 5.5.6"/></svg></a>
+      <a href="https://eugeniofim.com/" target="_blank" rel="noopener" aria-label="Site eugeniofim.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></a>
+      <a href="https://wa.me/5541991566444" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/><path d="M9 9.2c.2 2.6 2.2 4.6 4.8 4.8l1-1.2 1.7.8-.4 1.6c-3.8.4-7.5-3.3-7.1-7.1l1.6-.4.8 1.7z" fill="currentColor" stroke="none"/></svg></a>
+    </nav>
+    <div class="desce mono" aria-hidden="true">role<i></i></div>
+  </header>
+
+  <section class="trabalhos" aria-label="Trabalhos">
+    <div class="titulo-sec mono">Trabalhos</div>
+    <!-- a lista vem de LINKS, lá embaixo: troque ali e a página se monta sozinha -->
+  </section>
+
+  <section class="contato" aria-labelledby="tc">
+    <h2 id="tc">Tem um projeto?</h2>
+    <p>Trilha, sound design, disco ou vídeo. Me conta a ideia que eu te respondo.</p>
+    <a class="btn-wa" href="https://wa.me/5541991566444?text=Ol%C3%A1%20Eug%C3%AAnio%2C%20vim%20pelos%20seus%20links%20e%20quero%20falar%20sobre%20um%20projeto" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>Falar no WhatsApp</a>
+  </section>
+
+  <footer>
+    <img src="img/logo.svg" alt="Ti Artes">
+    <div>Eugênio Fim · studio Ti Artes · Curitiba</div>
+  </footer>
+</main>
+
+<a class="fixo" id="fixo" href="https://wa.me/5541991566444" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19z"/></svg>(41) 99156-6444</a>
+
+<script>
+/* OS LINKS — é só mexer aqui. img vazio = capa desenhada com o título. */
+const LINKS = [
+  { tipo: 'Show reel', titulo: 'Show Reel · Portfólio', texto: 'Trilhas e sound design pra Meta, Heinz, Amazon, Sport Recife e outros.', url: 'https://eugeniofim.com/#trabalhos', img: 'img/monet.webp' },
+  { tipo: 'Disco novo', titulo: 'Eh Coisarada!', texto: 'O disco novo. Ouça no Spotify.', url: 'https://open.spotify.com/intl-pt/album/1SfVpuxJeCji0Ju38EO1ty', img: 'img/coisarada.jpg', quadrada: true },
+  { tipo: 'Estúdio', titulo: 'Estúdio Ti Artes', texto: 'Publicidade, cinema e exposições imersivas.', url: 'https://eugeniofim.com/', img: 'img/basquete.webp' },
+  { tipo: 'Música e videoarte', titulo: 'LacduoFim', texto: 'Música instrumental e videoarte.', url: 'https://www.youtube.com/watch?v=eIgOF9eA_lU', img: 'img/bewater.webp' },
+  { tipo: 'Espetáculo', titulo: 'Poética da Terra em Crise', texto: 'Com Leticia Sabatella e Juliano Holanda.', url: 'https://eugeniofim.github.io/poeticadaterraemcrise/', img: 'img/poetica.webp' },
+];
+const sec = document.querySelector('.trabalhos');
+const seta = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+LINKS.filter(l => l.url).forEach(l => {
+  const a = document.createElement('a'); a.className = 'cartao'; a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
+  a.innerHTML = (l.img ? `<div class="capa${l.quadrada ? ' disco' : ''}"><img src="${esc(l.img)}" alt="" loading="lazy"></div>` : `<div class="capa sem"><b>${esc(l.titulo)}</b></div>`)
+    + `<div class="info"><div><div class="tipo mono">${esc(l.tipo)}</div><h2>${esc(l.titulo)}</h2><p>${esc(l.texto)}</p></div><span class="seta" aria-hidden="true">${seta}</span></div>`;
+  sec.appendChild(a);
+});
+
+/* O 3D: o logo gira com a rolagem; cada cartão vem do fundo inclinado e assenta no meio da tela */
+const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const marca = document.getElementById('marca'), ceu = [...document.querySelectorAll('.ceu i')], fixo = document.getElementById('fixo');
+const cartoes = [...document.querySelectorAll('.cartao')];
+let px = 0, py = 0, pedido = false;
+function quadro() {
+  pedido = false; const y = scrollY, h = innerHeight;
+  fixo.classList.toggle('ver', y > h * 0.7 && y + h < document.body.scrollHeight - 260);
+  if (calmo) return;
+  const t = Math.min(1, y / (h * 0.9));
+  marca.style.transform = `rotateX(${18 - t * 50 + py * 8}deg) rotateY(${-24 + t * 210 + px * 14}deg) translateZ(${-t * 160}px) scale(${1 - t * 0.25})`;
+  ceu.forEach((c, i) => c.style.transform = `translate3d(0,${-y * (0.08 + i * 0.05)}px,0)`);
+  cartoes.forEach(c => {
+    const r = c.getBoundingClientRect(), centro = (r.top + r.height / 2 - h / 2) / h;   /* 0 = no meio da tela */
+    const k = Math.max(-1, Math.min(1, centro));
+    const entra = Math.max(0, k);                                                           /* só quem ainda vem de baixo inclina */
+    c.style.transform = `translateZ(${-entra * 260}px) rotateX(${entra * 28}deg) rotateY(${k * -6}deg) translateY(${entra * 40}px)`;
+    c.style.opacity = String(1 - entra * 0.65);
+    const img = c.querySelector('.capa img'); if (img) img.style.setProperty('--px', `${k * -28}px`);
+  });
+}
+const pede = () => { if (!pedido) { pedido = true; requestAnimationFrame(quadro); } };
+addEventListener('scroll', pede, { passive: true }); addEventListener('resize', pede);
+addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; px = e.clientX / innerWidth - 0.5; py = e.clientY / innerHeight - 0.5; pede(); });
+quadro();
+</script>
+</body>
+</html>
